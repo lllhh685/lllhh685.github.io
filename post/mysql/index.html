@@ -1,0 +1,405 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>MySQL | lnuBlog</title>
+
+<link rel="shortcut icon" href="https://lllhh685.github.io/favicon.ico?v=1601727915883">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://lllhh685.github.io/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            lnuBlog
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/" class="menu gt-a-link">
+                            首页
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/post/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1601727915883" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    MySQL
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2020-10-03 ·
+                    </time>
+                    
+                        <a href="https://lllhh685.github.io/tag/RMwexY0Ek/" class="post-tags">
+                            # mysql
+                        </a>
+                    
+                </div>
+                <div class="post-content">
+                    <hr>
+<ol>
+<li>
+<p>删除数据库</p>
+<pre><code class="language-mysql">drop database 数据库名;
+</code></pre>
+</li>
+<li>
+<p>数据库表</p>
+<ul>
+<li>
+<p>查看表结构</p>
+<pre><code class="language-mysql">desc 表名;
+show create table 表名;
+</code></pre>
+</li>
+<li>
+<p>删除表</p>
+<pre><code class="language-mysql">drop table 表名;
+</code></pre>
+</li>
+<li>
+<p>数据库表修改名字</p>
+<pre><code class="language-mysql">alter table 原表名 rename [to] 新名;
+rename table 原表名 to 新名;
+</code></pre>
+</li>
+<li>
+<p>增加字段</p>
+<pre><code class="language-mysql">alter table 表名 add 列名 数据类型 约束; (最后一列)
+alter table 表名 add 列名 数据类型 约束 first; (第一列)
+alter table 表名 add 列名 数据类型 约束 after 列名; (在指定字段后增加字段)
+</code></pre>
+</li>
+<li>
+<p>删除字段</p>
+<pre><code class="language-mysql">alter table 表名 drop 列名;
+</code></pre>
+</li>
+<li>
+<p>修改字段</p>
+<pre><code class="language-mysql">alter table 表名 modify 列名 新数据类型; (修改表字段类型)
+alter table 表名 change 原列名 新列名 原列名类型值; (修改表字段名)
+alter table 表名 change 原列名 新列名 新列名类型值; (修改表字段名和类型值)
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>约束</p>
+<ul>
+<li>
+<p>主键约束</p>
+<pre><code class="language-mysql">单一主键
+字段名 类型名 primary key,
+为主键设置主键名
+constraint 主键名 primary key (字段名)
+多字段主键
+constraint 主键名 primary key (字段1, 字段2)
+</code></pre>
+</li>
+<li>
+<p>外键约束</p>
+<pre><code class="language-mysql">constraint 外键名 foreign key (外键) references 表名(参考表的参考字段)  
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>单表查询</p>
+<ul>
+<li>
+<p>去重查询</p>
+<pre><code class="language-mysql">select distinct fiele1 ... from 表名
+</code></pre>
+</li>
+<li>
+<p>带AND或OR的多条件查询</p>
+<pre><code class="language-mysql">select field1 ... from tablename where condition1 and condition2 ...
+select field1 ... from tablename where condition1 or condition2 ...
+</code></pre>
+</li>
+<li>
+<p>对查询结果进行排序</p>
+<pre><code class="language-mysql">select field1 ... from tablename order by fieldm [ASC|DESC]
+ASC 升序(默认)
+DESC 降序
+</code></pre>
+</li>
+<li>
+<p>统计函数</p>
+<pre><code class="language-mysql">select function(field) from tablename where condition 
+count(*) 不会忽略NULL值
+count(field) 会忽略NULL值
+avg(field) 会忽略NULL值
+</code></pre>
+</li>
+<li>
+<p>LIMIT限制</p>
+<pre><code class="language-mysql">select field ... from tablename where condition limit offset_start, row_count;
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>select子句顺序</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">子句</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">是否必须使用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">SELECT</td>
+<td style="text-align:center">要返回的列或表达式</td>
+<td style="text-align:center">是</td>
+</tr>
+<tr>
+<td style="text-align:center">FROM</td>
+<td style="text-align:center">从中检索数据的表</td>
+<td style="text-align:center">仅在从表中选择数据时使用</td>
+</tr>
+<tr>
+<td style="text-align:center">WHERE</td>
+<td style="text-align:center">行级过滤</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td style="text-align:center">GROUP BY</td>
+<td style="text-align:center">分组说明</td>
+<td style="text-align:center">仅在按组计算聚焦时使用</td>
+</tr>
+<tr>
+<td style="text-align:center">HAVING</td>
+<td style="text-align:center">组级过滤</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td style="text-align:center">ORDER BY</td>
+<td style="text-align:center">输出排序顺序</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td style="text-align:center">LIMIT</td>
+<td style="text-align:center">要检索的行数</td>
+<td style="text-align:center">否</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>多表查询</p>
+<ul>
+<li>
+<p>内连接查询</p>
+<pre><code class="language-mysql">select field1, ... from tablename1 inner join tablename2 on condition [inner join tablenamen on condition]
+</code></pre>
+</li>
+<li>
+<p>外连接查询</p>
+<ul>
+<li>
+<p>左外连接</p>
+<pre><code class="language-mysql">select field1, ... from tablename left join tablename2 on condition
+新关系匹配条件时,以关键字 LEFT JOIN 左边的表为参考表,左外连接的结果包括 LEFT OUTER 子句中指定的左表的所有行,如果左表的某行在右表中没有匹配行,在相关联的查询结果中,右表的选择列表均为 NULL
+</code></pre>
+</li>
+<li>
+<p>右外连接</p>
+<pre><code class="language-mysql">select field1, ... from tablename right join tablename2 on condition
+新关系执行匹配条件时,以关键字 RIGHT JOIN 右边的表为参考表
+</code></pre>
+</li>
+<li>
+<p>合并查询数据记录</p>
+<pre><code class="language-mysql">select field1, ... from tablename1 union | union all select field1, ... from tablename2
+关键字 union 会把查询结果集合并在一起,同时去掉重复的数据记录
+关键字 union all 会把查询结果直接合并在一起
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>子查询</p>
+<ul>
+<li>
+<p>带关键字 EXISTS 的子查询</p>
+<pre><code class="language-mysql">关键字 EXISTS 表示存在,后面的参数是一个任意的子查询,系统对子查询进行运算判断是否返回行,若至少返回一行
+EXISTS 返回的结果为 true ,外层语句将进行查询
+</code></pre>
+</li>
+<li>
+<p>带关键字 ANY 的子查询</p>
+<pre><code class="language-mysql">关键字 ANY 表示满足其中任一条件, 只要满足内层查询语句返回的结果中的任何一个,就可以通过该条件来执行外层查询语句
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>索引</p>
+<p>mysql的存储引擎对每个表至少支持16个索引，总索引长度至少为256字节</p>
+<ul>
+<li>
+<p>普通索引</p>
+<pre><code class="language-mysql">create table tablename (
+	propname type,
+	...
+    [UNIQUE|FULLTEXT|SPATIAL] INDEX|KEY [indexname] (propname [(length)] [ASC|DESC])
+);
+
+create index indexname on tablename (propname [(length)] [ASC | DESC]);
+propname指定索引对应字段的名称, length是可选参数,表示索引长度,必须是字符串类型才可以使用, ASC表示升序排列
+
+ALTER TABLE tablename ADD INDEX|KEY indexname (propname [(length) [ASC|DESC]]);
+</code></pre>
+</li>
+<li>
+<p>唯一索引</p>
+<pre><code class="language-mysql">create table tablename (
+	propname type,
+	...
+    UNIQUE INDEX|KEY [indexname] (propname [(length)] [ASC|DESC])
+);
+
+create UNIQUE index indexname on tablename (propname [(length)] [ASC | DESC]);
+
+ALTER TABLE tablename ADD UNIQUE INDEX|KEY indexname (propname [(length) [ASC|DESC]]);
+</code></pre>
+</li>
+<li>
+<p>删除索引</p>
+<pre><code class="language-mysql">drop index indexname on tablename;
+</code></pre>
+</li>
+</ul>
+</li>
+<li>
+<p>事务和锁</p>
+<p><a href="https://www.yuque.com/yinjianwei/vyrvkf/cl4weh">事务参考</a></p>
+<p><a href="https://www.yuque.com/yinjianwei/vyrvkf/ei0mep">锁参考</a></p>
+</li>
+</ol>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://lllhh685.github.io/post/lajishouji/" class="post-title gt-a-link">
+                    垃圾收集器与内存分配策略
+                </a>
+            </div>
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">keep trying</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://lllhh685.github.io/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>
