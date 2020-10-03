@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lllhh685.github.io</id>
     <title>lnuBlog</title>
-    <updated>2020-10-03T12:02:19.753Z</updated>
+    <updated>2020-10-03T12:09:50.407Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://lllhh685.github.io"/>
     <link rel="self" href="https://lllhh685.github.io/atom.xml"/>
@@ -107,7 +107,7 @@
 <li>并发清除：清理删除标记阶段的判断已死亡的对象</li>
 </ol>
 <p>优点：并发收集、低停顿</p>
-<p>缺点：吞吐量低、产生浮动垃圾（产生的垃圾对象待下一次垃圾收集时清理）、产生空间碎片，不得不提前除法一次Full GC</p>
+<p>缺点：吞吐量低、产生浮动垃圾（产生的垃圾对象待下一次垃圾收集时清理）、产生空间碎片，不得不提前触发一次Full GC</p>
 </li>
 <li>
 <p>Garbage First收集器</p>

@@ -6,7 +6,7 @@
 
 <title>垃圾收集器与内存分配策略 | lnuBlog</title>
 
-<link rel="shortcut icon" href="https://lllhh685.github.io/favicon.ico?v=1601726496755">
+<link rel="shortcut icon" href="https://lllhh685.github.io/favicon.ico?v=1601726937212">
 
 <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://lllhh685.github.io/styles/main.css">
@@ -77,7 +77,7 @@
             
         </div>
         <div style="text-align: center">
-            <form id="gridea-search-form" style="position: relative" data-update="1601726496755" action="/search/index.html">
+            <form id="gridea-search-form" style="position: relative" data-update="1601726937212" action="/search/index.html">
                 <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
                 <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
             </form>
@@ -193,7 +193,7 @@
 <li>并发清除：清理删除标记阶段的判断已死亡的对象</li>
 </ol>
 <p>优点：并发收集、低停顿</p>
-<p>缺点：吞吐量低、产生浮动垃圾（产生的垃圾对象待下一次垃圾收集时清理）、产生空间碎片，不得不提前除法一次Full GC</p>
+<p>缺点：吞吐量低、产生浮动垃圾（产生的垃圾对象待下一次垃圾收集时清理）、产生空间碎片，不得不提前触发一次Full GC</p>
 </li>
 <li>
 <p>Garbage First收集器</p>
