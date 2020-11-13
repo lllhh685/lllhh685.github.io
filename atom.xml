@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lllhh685.github.io</id>
     <title>lnuBlog</title>
-    <updated>2020-11-12T15:31:20.911Z</updated>
+    <updated>2020-11-13T01:55:28.353Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://lllhh685.github.io"/>
     <link rel="self" href="https://lllhh685.github.io/atom.xml"/>
@@ -10,6 +10,35 @@
     <logo>https://lllhh685.github.io/images/avatar.png</logo>
     <icon>https://lllhh685.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, lnuBlog</rights>
+    <entry>
+        <title type="html"><![CDATA[springsecurity部分]]></title>
+        <id>https://lllhh685.github.io/post/springsecurity-bu-fen/</id>
+        <link href="https://lllhh685.github.io/post/springsecurity-bu-fen/">
+        </link>
+        <updated>2020-11-13T01:53:27.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="spring-security">spring security</h2>
+<p>Spring Security’s Servlet support is based on Servlet <code>Filter</code>s</p>
+<img src="https://docs.spring.io/spring-security/site/docs/5.4.1/reference/html5/images/servlet/architecture/filterchain.png" style="zoom:71%;" />
+<h3 id="authorize-httpservletrequest-with-filtersecurityinterceptor">Authorize HttpServletRequest with FilterSecurityInterceptor</h3>
+<p>The <a href="https://docs.spring.io/spring-security/site/docs/current/api/org/springframework/security/web/access/intercept/FilterSecurityInterceptor.html"><code>FilterSecurityInterceptor</code></a> provides <a href="https://docs.spring.io/spring-security/site/docs/5.4.1/reference/html5/#servlet-authorization">authorization</a> for <code>HttpServletRequest</code>s. It is inserted into the <a href="https://docs.spring.io/spring-security/site/docs/5.4.1/reference/html5/#servlet-filterchainproxy">FilterChainProxy</a> as one of the <a href="https://docs.spring.io/spring-security/site/docs/5.4.1/reference/html5/#servlet-security-filters">Security Filters</a>.</p>
+<p>主要：认证和授权</p>
+<h3 id="具体应用">具体应用</h3>
+<p>自定义类继承自 webSecurityConfigurerAdapter 实现抽象方法实现授权和认证</p>
+<h4 id="基于数据库认证">基于数据库认证</h4>
+<p>用户实体类需要实现 UserDetails 接口，并实现该接口中的个方法</p>
+<p>定义 UserService 实现 UserDetailsService 接口，并实现该接口中的 loadUserByUsername 方法，该方法的参数就是用户登录时输入的用户名，通过用户名去数据库中查找用户，如果没有查找到用户，就抛出 个账户不存在的异常，如果查找到了用户，就继续查找该用户所具有的角色信息，并将获取到的 user 对象返回，再由系统提供的 DaoAuthenticationProvider 类去比对密码是否确。UserByUsername 方法将在用户登录时自动调用</p>
+<h4 id="动态权限配置">动态权限配置</h4>
+<ol>
+<li>
+<p>自定义 FilterlnvocationSecurityMetadataSource，实现该接口中的 getAttributes 方法，方法的参数是一个 FilterInvocation，可以从 Filterlnvocation 中提取出当前请求的URL</p>
+</li>
+<li>
+<p>当一个请求走完 FilterlnvocationSecurityMetadataSource 中的 getAttributes 方法后，接下来就会来到AccessDecisionManager类进行角色信息比对。自定义 AccessDecisionManager 并重写 decide 方法，decide 方法有三个参数，第一个参数包含当前登录用户的信息；第二个参数则是一个<br>
+Filterlnvocation对象，可以获取当前请求对象等；第三个参数就是FilterlnvocationSecurityMetadataSource 中的 getAttributes 方法的返回值即当前请求 URL需要的角色。</p>
+</li>
+</ol>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[整理部分面经]]></title>
         <id>https://lllhh685.github.io/post/zheng-li-bu-fen-mian-jing/</id>
